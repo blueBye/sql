@@ -1,0 +1,27 @@
+---
+- group:
+    name: target
+    state: present
+- group:
+    name: sudo
+    state: present
+- group:
+    name: docker
+    state: present
+- user:
+    name: trainee
+    groups: target,sudo,docker
+    shell: /bin/sh
+    append: true
+    home: /home/trainee
+- copy:
+    owner: trainee
+    mode: '770'
+    dest: /home/trainee/Labsetup.zip
+    src: files/Labsetup.zip
+- unarchive:
+    dest: /home/trainee/Labsetup
+    src: /home/trainee/Labsetup.zip
+- command:
+    shell: docker-compose up
+    chdir: /home/trainee/Labsetup
