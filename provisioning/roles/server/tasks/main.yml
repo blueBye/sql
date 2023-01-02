@@ -28,6 +28,41 @@
     owner: trainee
     mode: '770'
 
+# common
+- lineinfile:
+    path: /etc/hsots
+    line: 10.9.0.5 www.seed-server.com
+
+# csrf
+- lineinfile:
+    path: /etc/hsots
+    line: 10.9.0.5 www.example32.com
+
+- lineinfile:
+    path: /etc/hsots
+    line: 10.9.0.105 www.attacker32.com
+
+# xss
+- lineinfile:
+    path: /etc/hsots
+    line: 10.9.0.5 www.example70.com
+
+- lineinfile:
+    path: /etc/hsots
+    line: 10.9.0.5 www.example60.com
+
+- lineinfile:
+    path: /etc/hsots
+    line: 10.9.0.5 www.example32c.com
+
+- lineinfile:
+    path: /etc/hsots
+    line: 10.9.0.5 www.example32b.com
+
+- lineinfile:
+    path: /etc/hsots
+    line: 10.9.0.5 www.example32a.com
+
 - command: docker-compose up
   args:
     chdir: /home/trainee/Labsetup/
