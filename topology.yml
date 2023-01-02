@@ -15,18 +15,18 @@ routers:
       mgmt_user: debian
 
 networks:
-  - name: _network
+  - name: network
     cidr: 10.10.10.0/24
     accessible_by_user: true
 
 network_mappings:
   - ip: 10.10.10.10
-    host: _server
-    network: _network
+    host: server
+    network: network
 
 router_mappings:
-  - router: _router
+  - router: router
     ip: 10.10.10.4
-    network: _network
+    network: network
 
 groups: []
