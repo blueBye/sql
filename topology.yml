@@ -2,14 +2,14 @@ name: kypo-crp-demo-sandbox
 
 hosts:
   - name: server
-    flavour: standard.small
+    flavor: standard.small
     base_box:
       image: ubuntu-focal-x86_64
       mgmt_user: ubuntu
 
 routers:
   - name: router
-    flavour: standard.small
+    flavor: standard.small
     base_box:
       image: debian-9-x86_64
       mgmt_user: debian
