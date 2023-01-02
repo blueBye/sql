@@ -1,4 +1,4 @@
-name: kypo-crp-demo-sandbox
+name: sql-lab
 
 hosts:
   - name: server

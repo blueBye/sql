@@ -20,7 +20,7 @@
 #     dest: /home/trainee/Labsetup.zip
 #     src: files/Labsetup.zip
 - unarchive:
-    dest: /home/trainee/Labsetup
+    dest: /home/trainee
     src: files/Labsetup.zip
     owner: trainee
     mode: '770'
