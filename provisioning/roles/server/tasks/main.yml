@@ -14,14 +14,16 @@
     shell: /bin/sh
     append: true
     home: /home/trainee
-- copy:
-    owner: trainee
-    mode: '770'
-    dest: /home/trainee/Labsetup.zip
-    src: files/Labsetup.zip
+# - copy:
+#     owner: trainee
+#     mode: '770'
+#     dest: /home/trainee/Labsetup.zip
+#     src: files/Labsetup.zip
 - unarchive:
     dest: /home/trainee/Labsetup
-    src: /home/trainee/Labsetup.zip
+    src: files/Labsetup.zip
+    owner: trainee
+    mode: '770'
 - command:
     shell: docker-compose up
     chdir: /home/trainee/Labsetup
