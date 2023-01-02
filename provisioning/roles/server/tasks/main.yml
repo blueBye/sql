@@ -28,6 +28,6 @@
     owner: trainee
     mode: '770'
 
-- command:
-    shell: docker-compose up
-    chdir: /home/trainee/Labsetup
+- command: docker-compose up
+  args:
+    chdir: /home/trainee/Labsetup/
