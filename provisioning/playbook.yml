@@ -34,6 +34,10 @@
     - server
   become: yes
   tasks:
+    - apt:
+        name: unzip
+        state: latest
+    
     - include_role:
         name: "{{ inventory_hostname }}"
 
