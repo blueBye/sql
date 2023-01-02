@@ -1,19 +1,18 @@
 name: kypo-crp-demo-sandbox
 
 hosts:
-  - image: ubuntu-focal-x86_64
+  - name: _server
     flavour: standard.small
-    hidden: false
-    name: _server
-    mgmt_protocol: ssh
-    mgmt_user: ubuntu
+    base_box:
+      image: ubuntu-focal-x86_64
+      mgmt_user: ubuntu
 
 routers:
-  - image: debian-9-x86_64
+  - name: _router
     flavour: standard.small
-    name: _router
-    mgmt_protocol: ssh
-    mgmt_user: debian
+    base_box:
+      image: debian-9-x86_64
+      mgmt_user: debian
 
 networks:
   - name: _network
