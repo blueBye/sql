@@ -28,109 +28,20 @@
     owner: trainee
     mode: '770'
 
-# common
+- unarchive:
+    dest: /home/trainee
+    src: files/src-cloud.zip
+    owner: trainee
+    mode: '770'
+
 - lineinfile:
     path: /etc/hosts
     line: 10.9.0.5 www.seed-server.com
 
-# csrf
-- lineinfile:
-    path: /etc/hosts
-    line: 10.9.0.5 www.example32.com
-
-- lineinfile:
-    path: /etc/hosts
-    line: 10.9.0.105 www.attacker32.com
-
-# xss
-- lineinfile:
-    path: /etc/hosts
-    line: 10.9.0.5 www.example70.com
-
-- lineinfile:
-    path: /etc/hosts
-    line: 10.9.0.5 www.example60.com
-
-- lineinfile:
-    path: /etc/hosts
-    line: 10.9.0.5 www.example32c.com
-
-- lineinfile:
-    path: /etc/hosts
-    line: 10.9.0.5 www.example32b.com
-
-- lineinfile:
-    path: /etc/hosts
-    line: 10.9.0.5 www.example32a.com
-
-- name: installing apt-transport-https
-  apt:
-    name: apt-transport-https
-    state: latest
-    update_cache: true
-
-- name: installing ca-certificates
-  apt:
-    name: ca-certificates
-    state: latest
-    update_cache: true
-
-- name: installing curl
-  apt:
-    name: curl
-    state: latest
-    update_cache: true
-
-- name: installing gnupg-agent
-  apt:
-    name: gnupg-agent
-    state: latest
-    update_cache: true
-
-- name: installing software-properties-common
-  apt:
-    name: software-properties-common
-    state: latest
-    update_cache: true
-
-- name: installing python3-pip
-  apt:
-    name: python3-pip
-    state: latest
-    update_cache: true
-
-- name: installing python3-setuptools
-  apt:
-    name: python3-setuptools
-    state: latest
-    update_cache: true
-
-- name: adding docker repo
-  apt_repository:
-    repo: deb https://download.docker.com/linux/ubuntu focal stable 
-    state: present
-    validate_certs: false
-
-- name: installing docker-ce
-  apt:
-    name: docker-ce
-    state: latest
-    update_cache: true
-
-- name: installing docker-ce-cli
-  apt:
-    name: docker-ce-cli
-    state: latest
-    update_cache: true
-
-- name: installing containerd.io
-  apt:
-    name: containerd.io
-    state: latest
-    update_cache: true
-
-- name: install docker module for python
-  command: pip install docker
+- name: setup seed lab vm 
+  command: install.sh
+  args:
+    chdir: /home/trainee/src-cloud/
 
 - name: setting up lab using 
   command: docker-compose up
