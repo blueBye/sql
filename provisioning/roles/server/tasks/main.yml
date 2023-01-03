@@ -63,6 +63,54 @@
     path: /etc/hsots
     line: 10.9.0.5 www.example32a.com
 
+- apt:
+    name: apt-transport-https
+    state: latest
+
+- apt:
+    name: ca-certificates
+    state: latest
+
+- apt:
+    name: curl
+    state: latest
+
+- apt:
+    name: gnupg-agent
+    state: latest
+
+- apt:
+    name: software-properties-common
+    state: latest
+    update_cache: true
+
+- apt:
+    name: python3-pip
+    state: latest
+
+- apt:
+    name: python3-setuptools
+    state: latest
+
+- apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable 
+    state: present
+
+- apt:
+    name: docker-ce
+    state: latest
+    update_cache: true
+
+- apt:
+    name: docker-ce-cli
+    state: latest
+
+- apt:
+    name: containerd.io
+    state: latest
+
+- command: pip install docker
+
 - command: docker-compose up
   args:
     chdir: /home/trainee/Labsetup/
