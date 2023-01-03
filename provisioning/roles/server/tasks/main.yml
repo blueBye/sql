@@ -41,7 +41,7 @@
 - name: setup seed lab vm 
   command: install.sh
   args:
-    chdir: /home/trainee/src-cloud/
+    chdir: /home/trainee/src-cloud/src-cloud/
 
 - name: setting up lab using 
   command: docker-compose up
