@@ -63,54 +63,76 @@
     path: /etc/hosts
     line: 10.9.0.5 www.example32a.com
 
-- apt:
+- name: installing apt-transport-https
+  apt:
     name: apt-transport-https
     state: latest
+    update_cache: true
 
-- apt:
+- name: installing ca-certificates
+  apt:
     name: ca-certificates
     state: latest
+    update_cache: true
 
-- apt:
+- name: installing curl
+  apt:
     name: curl
     state: latest
+    update_cache: true
 
-- apt:
+- name: installing gnupg-agent
+  apt:
     name: gnupg-agent
     state: latest
+    update_cache: true
 
-- apt:
+- name: installing software-properties-common
+  apt:
     name: software-properties-common
     state: latest
     update_cache: true
 
-- apt:
+- name: installing python3-pip
+  apt:
     name: python3-pip
     state: latest
+    update_cache: true
 
-- apt:
+- name: installing python3-setuptools
+  apt:
     name: python3-setuptools
     state: latest
+    update_cache: true
 
-- apt_repository:
+- name: adding docker repo
+  apt_repository:
     repo: deb https://download.docker.com/linux/ubuntu focal stable 
     state: present
+    gpgcheck: false
 
-- apt:
+- name: installing docker-ce
+  apt:
     name: docker-ce
     state: latest
     update_cache: true
 
-- apt:
+- name: installing docker-ce-cli
+  apt:
     name: docker-ce-cli
     state: latest
+    update_cache: true
 
-- apt:
+- name: installing containerd.io
+  apt:
     name: containerd.io
     state: latest
+    update_cache: true
 
-- command: pip install docker
+- name: install docker module for python
+  command: pip install docker
 
-- command: docker-compose up
+- name: setting up lab using 
+  command: docker-compose up
   args:
     chdir: /home/trainee/Labsetup/
