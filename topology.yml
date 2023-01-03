@@ -4,8 +4,8 @@ hosts:
   - name: server
     flavor: standard.small
     base_box:
-      image: ubuntu-focal-x86_64
-      mgmt_user: ubuntu
+      image: seed
+      mgmt_user: seed
 
 routers:
   - name: router
