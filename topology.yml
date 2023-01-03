@@ -4,7 +4,7 @@ hosts:
   - name: server
     flavor: standard.small
     base_box:
-      image: seed
+      image: seed_v2
       mgmt_user: seed
 
 routers:
