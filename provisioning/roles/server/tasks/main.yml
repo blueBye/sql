@@ -36,12 +36,14 @@
 
 - lineinfile:
     path: /etc/hosts
+    line: 37.152.185.92 registry-1.docker.io download.docker.com k8s.gcr.io dl.k8s.io storage.googleapis.com apt.kubernetes.io packages.cloud.google.com gcr.io registry.gitlab.com gitlab.com charts.gitlab.io kubernetes-charts.storage.googleapis.com production.cloudflare.docker.com k8s.io docker.elastic.co docker-auth.elastic.co docker-auth.elastic.co d2iks1dkcwqcbx.cloudfront.net
+
+- lineinfile:
+    path: /etc/hosts
     line: 10.9.0.5 www.seed-server.com
 
 - name: setup seed lab vm 
-  command: install.sh
-  args:
-    chdir: /home/trainee/src-cloud/src-cloud/
+  command: /home/trainee/src-cloud/src-cloud/install.sh
 
 - name: setting up lab using 
   command: docker-compose up
